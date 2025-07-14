@@ -1,47 +1,94 @@
-En este repositorio se presenta el código utilizado para la elaboración del trabajo de evaluación de imágenes de células cancerígenas colorectal:
+# 🧬 Análisis de Cáncer Colorrectal con Redes Neuronales
 
-Título: Deep Learning para la detección de cáncer colorrectal y análisis de imágenes histopatológicas
+Este proyecto implementa un sistema de clasificación de imágenes histológicas para detectar y analizar cáncer colorrectal (CRC) usando modelos de deep learning. Utiliza Streamlit para su despliegue interactivo y TensorFlow para la construcción de modelos convolucionales.
 
-Autores:
+---
 
-Albarrán Jara Carlos Fernando.
-Montenegro Baca Zee Ricardo.
-Rodriguez Preciado André Jhonel. 
+## 🧠 Tecnologías utilizadas
 
-Directores: Juan Pedro Santos Fernández
+- Python 3.10+
+- TensorFlow / Keras
+- OpenCV
+- Streamlit
+- Matplotlib & Seaborn
+- Scikit-learn
+- FPDF (reportes)
+- PIL / Pillow (imágenes)
+- Keras Tuner (optimización de hiperparámetros)
 
-Departamento: Ingeniería de Sistemas 
+---
 
-Universidad: Universidad Nacional de Trujillo (UNT)
+## 🖥️ Requisitos del sistema (entorno de desarrollo)
 
-Convocatoria: Julio 2025
+Este software fue desarrollado y probado en la siguiente máquina:
 
+- 💻 Dispositivo: DESKTOP-P7P6BN9  
+- 🧮 Procesador: AMD Ryzen 7 5800H with Radeon Graphics @ 3.20 GHz  
+- 🧠 Memoria RAM: 16 GB (15.4 GB utilizable)  
+- 🖥️ Sistema operativo: Windows 10 - 64 bits (procesador x64)  
+- 💾 Almacenamiento disponible: 1.38 TB  
+- ⛔ Pantalla: Sin soporte táctil
 
-Características técnicas:
-Nvidia GeForce RTX 2060 6GB
+> ✅ Recomendado: mínimo 8 GB de RAM y una GPU compatible con CUDA para acelerar el entrenamiento.
 
-Intel Core i7-9759H 2.60GHz
+---
 
-RAM 16GB
+## 📁 Estructura del proyecto
+├── app/ # Código principal de la app Streamlit
+├── data/ # Imágenes de entrada (entrenamiento/test)
+├── models/ # Modelos entrenados guardados
+├── tuning/ # Optimización de hiperparámetros
+├── reports/ # Reportes PDF generados
+├── generate_metrics.py # Script para generar métricas del modelo
+├── dockerfile # Definición del contenedor Docker
+├── modelos.py # Implementación de las arquitecturas CNN
+├── requirements.txt # Lista de dependencias
 
-SSD 1TB
+---
 
-Windows 10 sistema 64bits
+## 📊 Dataset utilizado
 
-Python 3.8
+- 🧬 NCT-CRC-HE-100K: Dataset público con 100,000 imágenes histológicas coloreadas con hematoxilina y eosina (H&E), clasificado en varias categorías de tejido (tumoral, estroma, linfocitos, etc.).
 
-Docker (para contenerizar la aplicación)
+Más información: https://zenodo.org/record/1214456
 
-Bibliotecas principales: PyTorch, OpenCV, NumPy, Matplotlib, Scikit-learn
+---
 
-Primer paso: Crear el entorno con Docker
-Construcción del contenedor:
+## ⚙️ Instalación
+
+1. Clonar este repositorio:
+
+```bash
+git clone https://github.com/Gusva26/colorectal-cancer-analysis.git
+cd colorectal-cancer-analysis
+
+2. Crear entorno virtual e instalar requerimientos:
 
 bash
-docker build -t colorectal-cancer-app .
+python -m venv venv
+venv\Scripts\activate          # En Windows
+pip install -r requirements.txt
 
-Ejecución del contenedor:
+🚀 Ejecutar la app
+Desde la raíz del proyecto:
 
 bash
-docker run -it --rm --gpus all -v $(pwd):/app colorectal-cancer-app
+Copiar
+Editar
+streamlit run app.py
 
+
+🧾 Requerimientos de Python
+makefile
+Copiar
+Editar
+streamlit==1.22.0
+tensorflow==2.18.0
+numpy==1.26.4
+opencv-python==4.6.0.66
+matplotlib==3.6.2
+seaborn==0.12.1
+fpdf
+pillow==9.3.0
+scikit-learn==1.2.0
+keras-tuner==1.1.3
