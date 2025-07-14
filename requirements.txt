@@ -1,0 +1,12 @@
+tensorflow==2.15.0
+keras==2.15.0
+keras-tuner==1.4.7
+matplotlib
+numpy
+pandas
+opencv-python
+scikit-learn
+seaborn
+streamlit
+Pillow
+fpdf2
